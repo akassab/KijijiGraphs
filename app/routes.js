@@ -2,8 +2,6 @@
 // Add user-login favourites
 // Add clear option
 // Add location option
-
-
 const kijiji = require("kijiji-scraper");
 var Favourite = require('./models/favourite');
 module.exports = function (app) {
@@ -21,7 +19,6 @@ module.exports = function (app) {
     app.get("/api/categories",function (req,res) {
         res.send(kijiji.categories);
     });
-
     // someone asked for a new search result, return them the results
     app.post("/api/",function (req,res) {
         params.keywords = req.body.name;
@@ -34,6 +31,10 @@ module.exports = function (app) {
         });
         promise.catch(function () {
         });
+    });
+    // always returning index.html
+    app.get('*', function (req,res) {
+        res.sendFile('./public/index.html');
     });
 };
 
