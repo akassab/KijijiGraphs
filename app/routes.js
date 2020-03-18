@@ -6,6 +6,7 @@
 let results = {}    // search results go here
 let kijiji = require("kijiji-scraper"); // kijiji scraper to scrape results
 let Favourite = require('./models/favourite'); // favourite mongoose model
+let path = require('path');
 
 module.exports = function (app) {
     // api-----------------------
@@ -19,11 +20,11 @@ module.exports = function (app) {
          });
     });
     // some one asked for categories, send them categories
-    app.get("/api/categories",function (req,res) {
+    app.get('/api/categories',function (req,res) {
         res.send(kijiji.categories);
     });
     // someone asked for a new search result, return them the results
-    app.post("/api/",function (req,res) {
+    app.post('/api/search',function (req,res) {
         params.keywords = req.body.name;
         params.categoryId = req.body.category;
         var promise = kijiji.search(params, options).then(function(ads) {
@@ -37,7 +38,7 @@ module.exports = function (app) {
     });
     // always returning index.html
     app.get('*', function (req,res) {
-        res.sendFile('./public/index.html');
+        res.sendFile(path.join(__dirname, '../public', 'index.html'));
     });
 };
 
