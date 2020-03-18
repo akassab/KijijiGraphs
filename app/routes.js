@@ -2,8 +2,11 @@
 // Add user-login favourites
 // Add clear option
 // Add location option
-const kijiji = require("kijiji-scraper");
-var Favourite = require('./models/favourite');
+
+let results = {}    // search results go here
+let kijiji = require("kijiji-scraper"); // kijiji scraper to scrape results
+let Favourite = require('./models/favourite'); // favourite mongoose model
+
 module.exports = function (app) {
     // api-----------------------
     // Someone asked for favourites, send them  favourites --- TO DO
