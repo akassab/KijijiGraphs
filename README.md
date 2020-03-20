@@ -26,12 +26,8 @@ Specifically:
 - How to simply and reduce code using express.js
 
 ## Usage
-Select
 ![](categories.gif)
-Search
-![](search.gif)
-Results
+
 ![](click.gif)
-Hover
-![](hover.gif)
+
 
