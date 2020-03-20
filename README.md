@@ -1,7 +1,7 @@
 # KijijiGraphs
 
 
-Kijiji Graphs takes a search result and tranforms it into an interactive graph giving you greater insight on a product or service's markt value over time.
+Kijiji Graphs takes a search result and tranforms it into an interactive graph giving you greater insight on a product's or service's market value over time.
 
 
 ## Functions
