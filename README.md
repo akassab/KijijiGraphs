@@ -20,10 +20,10 @@ Kijiji Graphs takes a search result and tranforms it into an interactive graph g
 ## What I learned so far
 How to use Angular.js and Node.js + Express and MongoDB together (MEAN stack) and Bootstrap.
 Specifically: 
--How to use Angular.js to update HTML in real time.
--How to take advantage of Node.js packages such as chart.js for line graphs and kijiji-scraper for web scrapping.
--How to simplfy front end design with Bootstrap.
--How to simply and reduce code using express.js
+- How to use Angular.js to update HTML in real time.
+- How to take advantage of Node.js packages such as chart.js for line graphs and kijiji-scraper for web scrapping.
+- How to simplfy front end design with Bootstrap.
+- How to simply and reduce code using express.js
 
 ## Usage
 
