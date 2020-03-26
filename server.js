@@ -1,7 +1,6 @@
 // setup -------------------------------------------------------------------------
 let express = require("express");
 let app = express(); // create app with express
-var Chart = require("chart.js");
 let mongoose = require("mongoose");  // mongoose for mongodb
 let port = process.env.PORT || 8080; // set the port
 let database = require('./config/database'); // load database config
