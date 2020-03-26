@@ -1,4 +1,60 @@
-.chart {
-    width:1000px !important;
-    height:600px !important;
+/* button backgrounds purple and text colour white */
+.btn{
+    background-color: #373373 !important;
+    color: white !important;
+}
+/* on button hover turn a bit lighter purple*/
+.btn:hover, .btn:active, .btn:visited {
+    background-color: #3d3981 !important;
+}
+/* drop down menu background colour to be a shade of dark puple*/
+.dropdown-menu {
+    background-color: #373373 !important;
+}
+/* on drop down item button background to turn light purple on button hover*/
+.dropdown-item:hover, .dropdown-item:active, .dropdown-item:visited{
+    background-color: #5b55b3 !important;
+}
+/* drop down item button to have white text colour*/
+.dropdown-item {
+    color: white !important;
+}
+/* define bg purple to be used by buttons */
+.bg-purple, .btn-outline-secondary  {
+    background-color: #5b55b3 !important;
+    border-color: #373373 !important;
+}
+/* saved items list group width to be 70 percent of window width and aligned in the center horizontally */
+.list-group {
+    width: 70% !important;
+    margin: 0 auto;
+}
+/* Remove button not to be highlighted */
+.unselectable {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+/* ALERT BANNER dimesnions */
+.alert {
+    width: 800px !important;
+    margin: 0 auto !important;
+}
+/* alert banner initial colours */
+.alert-purple {
+    background-color: #bdb7ff !important;
+    color: #373373  !important;
+    border-color: #b3adf5  !important;
+}
+/* give input group top and bottom margin */
+.input-group {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+/* give entire page colour */
+.body {
+    background-color: #f9f3ff;
 }

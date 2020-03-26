@@ -1,68 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" href="index.css">
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
-    <!-- jQuery library -->
-    <script src="bower_components/bootstrap/site/docs/4.4/assets/js/vendor/jquery.slim.min.js"></script>
-    <!-- Latest compiled JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <head>
+        <meta charset="UTF-8">
+        <title>Kijiji Graphs - By Ayman Kassab</title>
+        <link rel="stylesheet" href="index.css">
+        <!-- minified bootstrap and loadingbar CSS  -->
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+        <link rel='stylesheet' href='bower_components/angular-loading-bar/build/loading-bar.min.css ' type='text/css' media='all' />
+        <!-- minified jQuery library -->
+        <script src="bower_components/bootstrap/site/docs/4.4/assets/js/vendor/jquery.slim.min.js"></script>
+        <!-- minified popper, bootstrap, angular, chart, angular-chart, loadingbar, angular-smooth-scrool javascript files -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="bower_components/angular/angular.js"></script>
+        <script src="bower_components/chart.js/dist/Chart.min.js"></script>
+        <script src="bower_components/angular-chart.js/angular-chart.js"></script>
+        <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+        <script src="bower_components/angular-loading-bar/build/loading-bar.min.js"></script>
+        <script src="bower_components/ngSmoothScroll/dist/angular-smooth-scroll.min.js"></script>
+        <!-- angular controller -->
+        <script src="js/app.js"></script>
+    </head>
+    <!-- AppCtrl defined here controller -->
+    <body ng-app="kGraphs" ng-controller="AppCtrl" class="body" id="scrollArea">
 
-    <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/chart.js/dist/Chart.min.js"></script>
-    <script src="bower_components/angular-chart.js/angular-chart.js"></script>
-
-    <script src="js/app.js"></script>
-</head>
-<body ng-app="kGraphs" ng-controller="AppCtrl as app">
-<div class="input-group">
-    <input type="text" class="form-control" aria-label="Text input with dropdown button" ng-model="app.newProduct">
-    <div class="input-group-append">
-        <button type="button" class="btn btn-outline-secondary" ng-click="app.searchProduct(app.newProduct)">Search</button>
-    </div>
-    <div class="input-group-append">
-        <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{app.level1 | underscoreless}}</button>
-        <div class="dropdown-menu">
-            <div ng-repeat="category in app.level1Strings" >
-                <button class="dropdown-item" ng-click="app.level1Selected(category)" >{{ category | underscoreless }}</button>
+        <!-- navbar -->
+        <div class="pos-f-t">
+            <!-- inside hidden -->
+            <div class="collapse" id="navbarToggleExternalContent">
+                <div class="bg-purple p-4">
+                    <h4 class="text-white">Kijiji Graphs</h4>
+                    <span class="text-muted">A small project in progress.</span>
+                </div>
             </div>
-            <div role="separator" class="dropdown-divider"></div>
-            <button class="dropdown-item" ng-click="app.level1Selected('ALL_CATEGORIES')" >ALL CATEGORIES </button>
+            <!-- outside -->
+            <nav class="navbar navbar-dark bg-purple">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <a class="navbar-brand" href="#">
+                    <img src="/docs/4.0/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+                    Last updated: March 25, 2020
+                </a>
+            </nav>
         </div>
-    </div>
-    <div class="input-group-append">
-        <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{app.level2 | underscoreless}}</button>
-        <div class="dropdown-menu">
-            <div ng-repeat="category in app.level2Strings" >
-                <button class="dropdown-item" ng-click="app.level2Selected(category)" >{{ category | underscoreless}}</button>
-            </div>
-            <div role="separator" class="dropdown-divider"></div>
-            <button class="dropdown-item" ng-click="app.level2Selected('ALL_CATEGORIES')" >ALL CATEGORIES</button>
-        </div>
-    </div>
-    <div class="input-group-append">
-        <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{app.level3 | underscoreless}}</button>
-        <div class="dropdown-menu">
-            <div ng-repeat="category in app.level3Strings" >
-                <button class="dropdown-item" ng-click="app.level3Selected(category)" >{{ category | underscoreless}}</button>
-            </div>
-            <div role="separator" class="dropdown-divider"></div>
-            <button class="dropdown-item" ng-click="app.level3Selected('ALL_CATEGORIES')" >ALL CATEGORIES</button>
-        </div>
-    </div>
-</div>
+        <!-- END OF NAVBAR -->
 
-<ul>
+        <!-- search and categories bar -->
+        <div class="input-group">
+            <!-- textfield -->
+            <input type="text" class="form-control" aria-label="Text input with dropdown button" ng-model="newProduct">
+            <!-- search button -->
+            <div class="input-group-append">
+                <button type="button" class="btn btn-outline-secondary" ng-click="searchProduct(newProduct)">Search</button>
+            </div>
+            <!-- categories 1 uses ng-repeat-->
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{levelTitles.one | underscoreless | titlecase}}</button>
+                <div class="dropdown-menu">
+                    <div ng-repeat="category in levelCategories.one" >
+                        <button class="dropdown-item" ng-click="levelSelectedFunctions.one(category)" >{{ category | underscoreless | titlecase}}</button>
+                    </div>
+                    <div role="separator" class="dropdown-divider"></div>
+                    <button class="dropdown-item" ng-click="levelSelectedFunctions.one('ALL_CATEGORIES')" >All categories</button>
+                </div>
+            </div>
+            <!-- categories 2 uses ng-repeat-->
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{levelTitles.two | underscoreless | titlecase}}</button>
+                <div class="dropdown-menu">
+                    <div ng-repeat="category in levelCategories.two" >
+                        <button class="dropdown-item" ng-click="levelSelectedFunctions.two(category)" >{{ category | underscoreless | titlecase}}</button>
+                    </div>
+                    <div role="separator" class="dropdown-divider"></div>
+                    <button class="dropdown-item" ng-click="levelSelectedFunctions.two('ALL_CATEGORIES')" >All categories </button>
+                </div>
+            </div>
+            <!-- categories 3 uses ng-repeat -->
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{levelTitles.three | underscoreless | titlecase}}</button>
+                <div class="dropdown-menu">
+                    <div ng-repeat="category in levelCategories.three" >
+                        <button class="dropdown-item" ng-click="levelSelectedFunctions.three(category)" >{{ category | underscoreless | titlecase}}</button>
+                    </div>
+                    <div role="separator" class="dropdown-divider"></div>
+                    <button class="dropdown-item" ng-click="levelSelectedFunctions.three('ALL_CATEGORIES')" >All categories</button>
+                </div>
+            </div>
+        </div>
+        <!-- END OF SEARCH BAR -->
 
-</ul>
-<canvas id="line" class="chart chart-line" chart-data="data"
-        chart-labels="labels" chart-series="series" chart-options="options"
-        chart-dataset-override="datasetOverride" chart-click="onClick">
-</canvas>
+        <!-- alert banner updated upon durring and after searches,  -->
+        <div class="alert alert-{{ alertType }}" role="alert">
+            {{ alert }}
+        </div>
+        <!-- END OF BANNER -->
+
+        <!-- graph using chart.js -->
+        <div class=" container">
+            <canvas id="line" class="chart chart-line" chart-colors="colors" chart-data="data"
+                    chart-labels="labels" chart-series="series" chart-options="options"
+                    chart-dataset-override="datasetOverride" chart-click="onClick">
+            </canvas>
+        </div>
+        <!-- END OF GRAPH -->
+
+        <!-- saved adds  uses ng-repeat-->
+        <div class="list-group" id="list-tab" role="tablist"  >
+            <div ng-repeat="item in savedAdds" class="list-group-item list-group-item-action flex-column align-items-start" data-toggle="list"  role="tab">
+                <div  href="#" ng-click="openLinkHelper(item.link)" >
+                    <div class="d-flex w-100 justify-content-between">
+                        <!-- add type and title -->
+                        <h5 class="mb-1">{{ item.type }}: {{ item.title }}</h5>
+                        <!-- add date -->
+                        <small>{{ item.date }}</small>
+                    </div>
+                    <!-- add price -->
+                    <small>${{ item.price }}</small>
+                    <!-- add description -->
+                    <p class="mb-1">{{item.description}} </p>
+                </div>
+                <!-- Remove button -->
+                <span class="badge badge-danger badge-pill unselectable" ng-click="removeSavedItem(item)">Remove</span>
+            </div>
+        </div>
+        <!-- END OF SAVED ADDS -->
 
 </body>
 </html>
