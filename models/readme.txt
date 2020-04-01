@@ -1,0 +1,3 @@
+- Models
+- Holding fields and types of fields for each file
+- These files will also hold functions to interact with those databases in that file

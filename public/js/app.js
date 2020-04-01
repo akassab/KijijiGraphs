@@ -22,7 +22,6 @@
 
 let kGraphs = angular.module("kGraphs", ['chart.js', 'angular-loading-bar','ngAnimate', 'smoothScroll'])
     .controller("AppCtrl",function($scope, $http, $window){
-
     // Private fields ===============
     // url: url of the API
     let url = 'http://localhost:8080';
@@ -61,7 +60,6 @@ let kGraphs = angular.module("kGraphs", ['chart.js', 'angular-loading-bar','ngAn
     }
     // Determines if a number is an outlier given the mean and std. NOT USED AT THE MOMENT
     function isOutlier(number, meanSd) {return !(number> meanSd[0] - 3 *meanSd[1] && number < meanSd[0] + 3 *meanSd[1]);}
-
     // SCOPE DEFINERS ===============
     $scope.alertType = "purple";
     $scope.alert= "Welcome! Try searching something you like!"
@@ -156,7 +154,6 @@ let kGraphs = angular.module("kGraphs", ['chart.js', 'angular-loading-bar','ngAn
             $scope.data = [[0]];
             // [string,]: different graphs, currently using only one
             $scope.series = ['Series A'];
-
             // [dict,]: some options part of chart.js
             $scope.datasetOverride =  [{
                 label: "Line chart",
@@ -273,7 +270,6 @@ let kGraphs = angular.module("kGraphs", ['chart.js', 'angular-loading-bar','ngAn
          };
 
      }
-
     // SCOPE USERS ===============
     // performs an GET request using $http service on /api/categories to get level categories from kijiji-scraper
     // module in routes.js
@@ -289,10 +285,8 @@ let kGraphs = angular.module("kGraphs", ['chart.js', 'angular-loading-bar','ngAn
     getCategories();
     chartJsHelper();
 });
-
 // Filter to remove underscores
 kGraphs.filter('underscoreless', function () {return function (input) {return input.replace(/_/g, ' ');};});
-
 // Filter to turn sentences into title case
 kGraphs.filter('titlecase', function() {
     return function (input) {

@@ -1,14 +1,27 @@
 {
   "name": "kijijigraphs",
   "version": "0.0.0",
+  "description": "kijiji graphs app",
+  "author": "Ayman Kassab",
   "private": true,
+  "main": "server.js",
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "This way we can just do npm start",
+    "start": "node server"
   },
   "dependencies": {
     "cors": "^2.8.5",
     "express": "~4.16.1",
     "kijiji-scraper": "^5.0.5",
-    "mongoose": "^5.9.5"
+    "mongoose": "",
+    "mongoose": "^5.9.5",
+    "bcryptjs": "",
+    "bcryptjs": "*",
+    "jsonwebtoken": "generate JWT tokens, to have authentication for specific routes",
+    "jsonwebtoken": "*",
+    "body-parser": "*",
+    "passport": "*",
+    "passport-jwt": "Allows us to create a login strategy that uses web tokens ",
+    "passport-jwt": "*"
   }
 }
