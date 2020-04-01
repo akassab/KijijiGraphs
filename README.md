@@ -3,6 +3,8 @@
 
 Kijiji Graphs takes a search result and tranforms it into an interactive graph giving you greater insight on a product's or service's market value over time.
 
+http://ec2-54-202-47-149.us-west-2.compute.amazonaws.com
+
 ## What I learned so far
 How to use Angular.js and Node.js + Express and MongoDB together (MEAN stack) and Bootstrap.
 
